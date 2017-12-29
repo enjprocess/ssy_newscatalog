@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>shengsiyuan</display-name>
+
+  <servlet>
+    <servlet-name>ListNewsCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newscatalog.ListNewsCatalog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddNewsCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newscatalog.AddNewsCatalog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdatePNewsCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newscatalog.UpdatePNewsCatalog</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>ListNewsCatalog</servlet-name>
+    <url-pattern>/NewsCatalog/ListNewsCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddNewsCatalog</servlet-name>
+    <url-pattern>/NewsCatalog/AddNewsCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdatePNewsCatalog</servlet-name>
+    <url-pattern>/NewsCatalog/UpdatePNewsCatalog</url-pattern>
+  </servlet-mapping>
+ 
+</web-app>

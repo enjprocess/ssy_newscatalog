@@ -1,0 +1,180 @@
+A:link
+{
+    COLOR: #0000CC;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #0000CC;
+    font-size:12px;
+    TEXT-DECORATION: underline
+}
+A:visited
+{
+    COLOR: #0000CC;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+
+A.whitelink:link
+{
+    COLOR: white;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+A.whitelink:hover
+{
+    COLOR: white;
+    font-size:12px;
+    TEXT-DECORATION: underline
+}
+A.whitelink:visited
+{
+    COLOR: white;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+
+A.subnavlink:link
+{
+    COLOR:#FFFFFF;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+A.subnavlink:hover
+{
+    COLOR: #FFFFFF;
+    font-size:12px;
+    TEXT-DECORATION: underline
+}
+A.subnavlink:visited
+{
+    COLOR: #FFFFFF;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+
+A.subnavlink_selected:link
+{
+    COLOR:#CC0000;
+    font-size:12px;
+	font-weight:bold;
+    TEXT-DECORATION: none
+}
+A.subnavlink_selected:hover
+{
+    COLOR:#CC0000;
+    font-size:12px;
+	font-weight:bold;
+    TEXT-DECORATION: underline
+}
+A.subnavlink_selected:visited
+{
+    COLOR:#CC0000;
+    font-size:12px;
+	font-weight:bold;
+    TEXT-DECORATION: none
+}
+
+.text
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    LINE-HEIGHT: 20px
+}
+
+
+.para
+{
+	font-family:arial;
+        font-size:12px;
+        LINE-HEIGHT: 20px;
+        text-indent:24px;
+        color:#000000
+}
+
+
+.borderfixed{
+  border-left:1px solid #e0e0e0;
+  border-right:1px solid #e0e0e0;
+  border-top:1px solid #e0e0e0;
+  border-bottom:1px solid #e0e0e0
+}
+
+.borderinput{
+  width:120px;
+  border-left:1px solid #999999;
+  border-right:1px solid #999999;
+  border-top:1px solid #999999;
+  border-bottom:1px solid #999999
+}
+
+.main{
+  border-left:3px solid #001637;
+  border-right:3px solid #001637;
+  border-top:3px solid #001637;
+  border-bottom:3px solid #001637
+}
+
+.newstitle{
+		font-family:arial;
+        font-size:18px;
+        LINE-HEIGHT: 14px;
+		font-weight:bold;
+		FILTER: glow(color='blue');
+		width:100%;
+        color:#ffffff
+}
+
+.title{
+	font-size:13px;
+	color:white;
+	FILTER: glow(color='#000066');
+	width:100%
+}
+
+.coltitle{
+	font-size:13px;
+	font-weight:bold;
+	color:#3C0606
+
+}
+
+.coltitle_white{
+	font-size:13px;
+	font-weight:bold;
+	color:white
+
+}
+
+.input{
+	BORDER-LEFT:1px solid black; 
+	BORDER-BOTTOM: 1px solid darkgray; 
+	BORDER-TOP: 1px solid black;
+	BACKGROUND-COLOR: #1F1F1F; 
+	BORDER-RIGHT: 1px solid lightgrey;
+	height:20px;
+	color:#ffffff
+
+}
+
+.inputhelp{
+	BORDER-LEFT:1px solid black; 
+	BORDER-BOTTOM: 1px solid darkgray; 
+	BORDER-TOP: 1px solid black;
+	BACKGROUND-COLOR: #33CCFF; 
+	BORDER-RIGHT: 1px solid lightgrey;
+	height:20px;
+	color:#000033
+
+}
+
+.webfooterspliter
+{
+	background-color:#000066
+}
+
+.webfootbg{
+	background-color:#0000CC
+}

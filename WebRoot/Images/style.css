@@ -1,0 +1,27 @@
+A:link {
+	FONT-SIZE: 12px; COLOR: #343434; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #343434; TEXT-DECORATION: underline
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #343434; TEXT-DECORATION: none
+}
+.text {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 20px
+}
+.para {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-INDENT: 24px; LINE-HEIGHT: 20px; FONT-FAMILY: arial
+}
+.borderfixed {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; BORDER-LEFT: #e0e0e0 1px solid; BORDER-BOTTOM: #e0e0e0 1px solid
+}
+.borderinput {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; BORDER-LEFT: #999999 1px solid; WIDTH: 120px; BORDER-BOTTOM: #999999 1px solid
+}
+.main {
+	BORDER-RIGHT: #001637 3px solid; BORDER-TOP: #001637 3px solid; BORDER-LEFT: #001637 3px solid; BORDER-BOTTOM: #001637 3px solid
+}
+.newstitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #000099; LINE-HEIGHT: 20px; FONT-FAMILY: arial
+}

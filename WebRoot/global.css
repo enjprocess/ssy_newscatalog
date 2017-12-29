@@ -1,0 +1,86 @@
+<style type="text/css">
+
+.DIVNONE{display:none}
+
+.BUTTON {
+		        font-size: 9pt; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; height: 20px; clip:  rect(   ); color: #000000; border-color: black #000000 #000000 black; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #999999;
+		}
+
+.LOGINBUTTON {
+		        line-height: normal;font-size : 8pt; FONT-FAMILY: arial, 宋体, helvetica, sans-serif
+              }
+
+.SELECTELE {
+		        font-size: 9pt; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; height: 80px; clip:  rect(   ); color: #000000; border-color: #000000 #000000 #000000 #000000; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #ffffff;
+		}
+
+.TABLE{
+  background-color: #999999;
+}
+
+
+TT {
+	font-size : 8pt; FONT-FAMILY: arial, 宋体, helvetica, sans-serif
+}
+TD {
+	font-size: 8pt; FONT-FAMILY: arial, 宋体, helvetica, sans-serif
+}
+PRE {
+	font-size : 8pt; FONT-FAMILY: arial, 宋体, helvetica, sans-serif
+}
+FONT {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+P {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+UL {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+OL {
+	FONT-FAMILY: arial, helvetica, sans-serif
+}
+B {
+	FONT-WEIGHT: 600
+}
+
+
+
+BODY {
+	FONT-FAMILY: arial, helvetica, sans-serif;background-color: #ffffff
+}
+
+A {
+    text-decoration : underline;
+}
+
+A:hover {
+    text-decoration : none;
+    color : #6699cc;
+}
+
+.MESSAGEBOARDTABLE {  font-size: 8pt; font-style: normal; text-decoration: none; font-family: arial, helvetica, sans-serif
+}
+
+.TR{
+    background-color: #ffffff
+}
+
+.trbgcolor{
+    background-color: #ffffff
+}
+.foothrcolor{
+    color: #666666
+}
+
+.foothrefcolor{
+    color: #003399
+}
+.grayColor{
+    color: #999999
+}
+
+INPUT,TEXT,SELECT {
+		        font-size: 9pt; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; height: 20px; clip:  rect(   ); color: #000000; border-color: #000000 #000000 #000000 #000000; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; background-color: #ffffff;
+		}
+</style>

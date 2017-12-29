@@ -1,0 +1,25 @@
+
+DaoException 继承Exception主要用于处理Dao层异常信息，在该项目中主要用于将SQLException捕获并包装成DaoException然后抛给Service层
+
+ErrCode 该系统中所有系统信息所对应的code码
+
+Dao接口 主要规定了所有实现它的接口的类都必须要提供getConnection方法
+
+AbstractBaseDao 实现了Dao接口，主要将各个模块中Dao类的一些通用特征给抽离出来，例如成员变量properted Connection conn,成员方法getConneciton、closeConnection,这样具体的Dao类就可以直接拿来用了，不需要每个都去定义一遍了
+
+ConfigHelper 主要用于读取资源文件并返回Proeprties对象 底层用HashMap维护了Properties对象池，这样就避免了一个文件被读取多次的情况，减少了I/O操作
+
+DBConnectionFactory 该类是单例的，主要是用来提供数据库连接的，该对象内部已经构建好了数据源，并且向外提供了方法getConnection,当前系统所用的连接都是从DataSource连接池中获得的，【真正的连接池是由BasicDataSource来管理，我们只需要从更高层次使用它就行了】
+
+DBString 构建数据源所需要用到的常量
+
+MessageHelper 主要是用于读取异常文件的，根据给定的errCode返回文本信息，这里采用了ResourceBundle，ResourceBundle底层采用了HashTable,get过就被缓存了，下次再get直接从内存中返回了,所以效率不用担心，sun对ResourceBundle实现类提供了缓存设计
+
+TransactionContext —— 事务的上下文  维护着一个连接对象,因为你要用到事务的话，那么就意味着要将连接设置为不自动提交，还公布事务的commit与rollback与getConnection方法,并对commit、rollback做了异常处理
+
+TransactionManager 完全调用TransactionManager中的相应方法，并且它真正的接受数据库的连接,就是说从数据源中获取到连接之后给它,
+TransactionManager是service层来用的,由它来开启事务，
+
+WebRoot/NewsCatalog jsp的目录名字和java类名规则类似。
+
+listNewsCatalog.jsp jsp的名字与java方法名类似。

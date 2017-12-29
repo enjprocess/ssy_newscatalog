@@ -1,0 +1,112 @@
+A:link
+{
+    COLOR: #343434;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: #343434;
+    font-size:12px;
+    TEXT-DECORATION: underline
+}
+A:visited
+{
+    COLOR: #343434;
+    font-size:12px;
+    TEXT-DECORATION: none
+}
+
+.text
+{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    LINE-HEIGHT: 20px
+}
+
+
+.para
+{
+	font-family:arial;
+        font-size:12px;
+        LINE-HEIGHT: 20px;
+        text-indent:24px;
+        color:#000000
+}
+
+
+.borderfixed{
+  border-left:1px solid #e0e0e0;
+  border-right:1px solid #e0e0e0;
+  border-top:1px solid #e0e0e0;
+  border-bottom:1px solid #e0e0e0
+}
+
+.borderinput{
+  width:120px;
+  border-left:1px solid #999999;
+  border-right:1px solid #999999;
+  border-top:1px solid #999999;
+  border-bottom:1px solid #999999
+}
+
+.main{
+  border-left:3px solid #001637;
+  border-right:3px solid #001637;
+  border-top:3px solid #001637;
+  border-bottom:3px solid #001637
+}
+
+.newstitle{
+		font-family:arial;
+        font-size:20px;
+        LINE-HEIGHT: 20px;
+		font-weight:bold;
+		FILTER: glow(color='blue');
+		width:100%;
+        color:#000099
+}
+
+.bluetitle{
+	font-size:13px;
+	color:white;
+	FILTER: glow(color='#3333CC');
+	width:100%;
+}
+
+.greentitle{
+font-size:13px;
+	font-weight:bold;
+	color:white;
+	FILTER: glow(color='green');
+	width:100%
+}
+
+.pinktitle{
+font-size:13px;
+	font-weight:bold;
+	color:white;
+	FILTER: glow(color='#DB006D');
+	width:100%
+}
+
+.orangetitle{
+font-size:13px;
+	font-weight:bold;
+	color:white;
+	FILTER: glow(color='#FF9933');
+	width:100%
+}
+
+.chinatitle{
+font-size:13px;
+	font-weight:bold;
+	color:white;
+	FILTER: glow(color='#DB0005');
+	width:100%
+}
+
+.splitertitle{
+	font-size:13px;
+	font-weight:bold;
+}
