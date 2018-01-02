@@ -92,7 +92,7 @@ public class NewsCatalogDaoImpl extends AbstractBaseDao implements
     @Override
     public long getNewCatalogCountByParentIdAndName(long parentId, String name)
             throws DaoException {
-        
+
         StringBuilder sb = new StringBuilder();
         sb.append("select count(*) COUNT_ from ")
                 .append(DaoConstants.NEWSCATALOG_TABLE_NAME)
@@ -101,10 +101,10 @@ public class NewsCatalogDaoImpl extends AbstractBaseDao implements
             PreparedStatement ps = conn.prepareStatement(sb.toString());
             ps.setLong(1, parentId);
             ps.setString(2, name);
-            
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-               return rs.getLong("COUNT_");
+                return rs.getLong("COUNT_");
             }
         } catch (SQLException e) {
             throw new DaoException(ErrCode.SQL_ERROR, e);
@@ -114,7 +114,7 @@ public class NewsCatalogDaoImpl extends AbstractBaseDao implements
 
     @Override
     public NewsCatalog getNewsCatalogById(long id) throws DaoException {
-        
+
         StringBuilder sb = new StringBuilder();
         sb.append("select id, name, parentId from ")
                 .append(DaoConstants.NEWSCATALOG_TABLE_NAME)
@@ -161,4 +161,58 @@ public class NewsCatalogDaoImpl extends AbstractBaseDao implements
         return list;
     }
 
+    @Override
+    public void updateNewsCatalog(NewsCatalog bean) throws DaoException {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("update ").append(DaoConstants.NEWSCATALOG_TABLE_NAME)
+                .append(" set parentId = ?, name = ? where id = ?");
+        try {
+            PreparedStatement ps = conn.prepareStatement(sb.toString());
+            ps.setLong(1, bean.getParentId());
+            ps.setString(2, bean.getName());
+            ps.setLong(3, bean.getId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new DaoException(ErrCode.SQL_ERROR, e);
+        }
+    }
+
+    @Override
+    public long getNewsCatalogByParentId(long parentId) throws DaoException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("select count(*) count_ from ")
+                .append(DaoConstants.NEWSCATALOG_TABLE_NAME)
+                .append(" where parentId = ?");
+        try {
+            PreparedStatement ps = conn.prepareStatement(sb.toString());
+            ps.setLong(1, parentId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               long count = rs.getLong("count_");
+               return count;
+            }
+        } catch (SQLException e) {
+            throw new DaoException(ErrCode.SQL_ERROR, e);
+        }
+        return 0; //不可到达,为了方法通过
+    }
+
+    @Override
+    public void deleteNewsCatalogById(long id) throws DaoException {
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("delete from ")
+                .append(DaoConstants.NEWSCATALOG_TABLE_NAME)
+                .append(" where id = ?");
+        try {
+            
+            PreparedStatement ps = conn.prepareStatement(sb.toString());
+            ps.setLong(1, id);
+            ps.executeUpdate();
+            
+        } catch (SQLException e) {
+            throw new DaoException(ErrCode.SQL_ERROR, e);
+        }
+    }
 }

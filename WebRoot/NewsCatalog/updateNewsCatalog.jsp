@@ -4,6 +4,9 @@
 
 <%@include file="../tabsidebar.jsp" %>
 <%
+    String start = (String) request.getAttribute("start");
+    String range = (String) request.getAttribute("range");
+ 
     NewsCatalog bean = (NewsCatalog) request.getAttribute("bean");
     List<NewsCatalog> list = (List<NewsCatalog>) request.getAttribute("list");
     
@@ -19,7 +22,12 @@
 </head>
 <body>
 
-    <form action="AddNewsCatalog" method="post">
+    <form action="UpdateNewsCatalog" method="post">
+    
+        <input type="hidden" name="parentId" value="<%= bean.getParentId() %>" />
+        <input type="hidden" name="id" value="<%= bean.getId() %>" />
+        <input type="hidden" name="start" value="<%= start %>" />
+        <input type="hidden" name="range" value="<%= range %>" />
         
         <table border="0" width="400" cellpadding="3" cellspacing="1" align="center" class="table">
 	        <tr bgcolor="#f0f0f0">
@@ -33,7 +41,7 @@
 	            <td>
 	               <select name="newParentId">
 	                   <%for (NewsCatalog newsCatalog : list){ %>
-	                       <option <%= bean.getParentId() == newsCatalog.getId() ? "selected" : ""  %>><%=newsCatalog.getName() %></option>
+	                       <option <%= bean.getParentId() == newsCatalog.getId() ? "selected" : ""  %> value="<%=newsCatalog.getId()%>"><%=newsCatalog.getName() %></option>
 	                   <%} %>
 	               </select>
 	            </td>

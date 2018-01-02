@@ -7,7 +7,16 @@
 <%@ include file="global.css" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/style.css">
 
+<script type="text/javascript">
 
+    function del() {
+    	if (confirm("您真的要删除吗？")) {
+    		return true;
+    	}
+    	return false;
+    }
+
+</script>
  
 </head>
 

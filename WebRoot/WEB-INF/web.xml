@@ -14,6 +14,26 @@
     <servlet-name>UpdatePNewsCatalog</servlet-name>
     <servlet-class>com.shengsiyuan.imis.servlet.newscatalog.UpdatePNewsCatalog</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateNewsCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newscatalog.UpdateNewsCatalog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteNewsCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newscatalog.DeleteNewsCatalog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListNewsItem</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newsitem.ListNewsItem</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddNewsItem</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newsitem.AddNewsItem</servlet-class>
+  </servlet>
+
+
+
+
 
 
 
@@ -28,6 +48,22 @@
   <servlet-mapping>
     <servlet-name>UpdatePNewsCatalog</servlet-name>
     <url-pattern>/NewsCatalog/UpdatePNewsCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateNewsCatalog</servlet-name>
+    <url-pattern>/NewsCatalog/UpdateNewsCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsCatalog</servlet-name>
+    <url-pattern>/NewsCatalog/DeleteNewsCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListNewsItem</servlet-name>
+    <url-pattern>/NewsItem/ListNewsItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddNewsItem</servlet-name>
+    <url-pattern>/NewsItem/AddNewsItem</url-pattern>
   </servlet-mapping>
  
 </web-app>

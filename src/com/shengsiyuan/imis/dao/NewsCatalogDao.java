@@ -19,4 +19,9 @@ public interface NewsCatalogDao {
     
     public List<NewsCatalog> listNewsCatalogByParentId(long parentId) throws DaoException;
     
+    public void updateNewsCatalog(NewsCatalog bean) throws DaoException;
+    
+    public long getNewsCatalogByParentId(long parentId) throws DaoException;
+    
+    public void deleteNewsCatalogById(long id) throws DaoException; 
 }

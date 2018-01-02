@@ -19,4 +19,10 @@ public interface NewsCatalogService {
     public NewsCatalog getNewsCatalogById(long id) throws ServiceException;
     
     public List<NewsCatalog> listAllParentLevelNewsCatalog(long parentId) throws ServiceException;
+    
+    public void updateNewsCatalog(NewsCatalog bean) throws ServiceException;
+    
+    public boolean deleteNewsCatalog(long id) throws ServiceException;
+    
+    public long getNewsCatalogByParentId(long id) throws ServiceException;
 }

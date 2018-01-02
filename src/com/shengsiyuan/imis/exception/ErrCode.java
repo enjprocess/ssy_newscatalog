@@ -12,4 +12,14 @@ public class ErrCode {
 
     public static final int LIST_NEWS_CATALOG_ERROR = 2002;
     
+    public static final int UPDATE_NEWS_CATALOG_ERROR = 2003;
+    
+    /////////////////////////////////////////////////////////////
+    
+    public static final int ADD_NEWS_ITEM_ERROR = 3001;
+    
+    public static final int LIST_NEWS_ITEM_ERROR = 3002;
+
+    public static final int UPDATE_NEWS_ITEM_ERROR = 3003;
+    
 }

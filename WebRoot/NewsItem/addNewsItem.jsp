@@ -10,16 +10,28 @@
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<% String title = "新闻分类列表"; %>
+<% String title = "新闻条目列表"; %>
 <%@ include file="../title.jsp" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript" src="../lib/jquery-1.3.2.js"></script>
+<link type="text/css"  rel="stylesheet" href="../jwysiwyg/jquery.wysiwyg.css" />
+<script type="text/javascript" src="../jwysiwyg/jquery.wysiwyg.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	$("#content").wysiwyg();
+})
+
+</script>
+
 </head>
 <body>
 
-    <form action="AddNewsCatalog" method="post">
+    <form action="AddNewsItem" method="post">
         
         <input type="hidden" name="parentId" value="<%=parentId %>" />
         <input type="hidden" name="range" value="<%=range %>" />
@@ -29,6 +41,13 @@
 	            <td nowrap="nowrap">名称：</td>
 	            <td><input type="text" name="name" style="width: 400px"></td>
 	        </tr>
+	        
+	        <tr bgcolor="#f0f0f0">
+                <td nowrap="nowrap">内容：</td>
+                <td>
+                    <textarea id="content" name="content" style="width:600px; height:300px;"></textarea>
+                  </td>
+            </tr>
 	        
 	        <tr class="tr">
 	            <td align="center" colspan="2">

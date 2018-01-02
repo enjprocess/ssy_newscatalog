@@ -132,4 +132,64 @@ public class NewsCatalogServiceImpl extends AbstractBaseService implements
         return list;
     }
 
+    @Override
+    public void updateNewsCatalog(NewsCatalog bean) throws ServiceException {
+        
+        TransactionContext context = transManager.beginTransaction();
+
+        NewsCatalogDao dao = new NewsCatalogDaoImpl(context.getConn());
+
+        try {
+            dao.updateNewsCatalog(bean);
+            transManager.commitTransaction(context);
+        } catch (DaoException e) {
+            transManager.rollbackTransaction(context);
+            throw new ServiceException(ErrCode.UPDATE_NEWS_CATALOG_ERROR, e);
+        }
+    }
+
+    @Override
+    public boolean deleteNewsCatalog(long id) throws ServiceException {
+        
+        TransactionContext context = transManager.beginTransaction();
+
+        NewsCatalogDao dao = new NewsCatalogDaoImpl(context.getConn());
+
+        try {
+            
+            long count = dao.getNewsCatalogByParentId(id);
+            if (0 == count) {
+                dao.deleteNewsCatalogById(id);
+                transManager.commitTransaction(context);
+                return true;
+            }
+            
+            transManager.commitTransaction(context);
+        } catch (DaoException e) {
+            transManager.rollbackTransaction(context);
+            throw new ServiceException(ErrCode.UPDATE_NEWS_CATALOG_ERROR, e);
+        }
+        
+        return false;
+    }
+
+    @Override
+    public long getNewsCatalogByParentId(long id) throws ServiceException {
+        
+        TransactionContext context = transManager.beginTransaction();
+
+        NewsCatalogDao dao = new NewsCatalogDaoImpl(context.getConn());
+
+        try {
+            
+            long count = dao.getNewsCatalogByParentId(id);
+            transManager.commitTransaction(context);
+            return count;
+        } catch (DaoException e) {
+            transManager.rollbackTransaction(context);
+            throw new ServiceException(ErrCode.UPDATE_NEWS_CATALOG_ERROR, e);
+        }
+    }
+    
+
 }

@@ -28,6 +28,10 @@ public class UpdatePNewsCatalog extends HttpServlet {
 
         long parentId = ParamUtils.getLongParameter(request, "parentId");
         long id = ParamUtils.getLongParameter(request, "id");
+        long start = ParamUtils.getLongParameter(request, "start", 0);
+        long range = ParamUtils.getLongParameter(request, "range", 20);
+        
+        
         
         try {
             
@@ -42,6 +46,8 @@ public class UpdatePNewsCatalog extends HttpServlet {
                 request.setAttribute("list", list);
             }
             
+            request.setAttribute("start", String.valueOf(start));
+            request.setAttribute("range", String.valueOf(range));
             request.getRequestDispatcher("updateNewsCatalog.jsp").forward(request, response);
             
             

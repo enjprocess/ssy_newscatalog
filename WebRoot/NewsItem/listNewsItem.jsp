@@ -5,12 +5,11 @@
 <%@include file="../tabsidebar.jsp" %>
 
 <%
-List<NewsCatalog> list = (List) request.getAttribute("list");
-
+List<NewsItem> list = (List) request.getAttribute("list");
+  
 String parentId = (String) request.getAttribute("parentId");
 String start = (String) request.getAttribute("start");
 String range = (String) request.getAttribute("range");
-String upperId = (String) request.getAttribute("upperId");
 
 
 %>
@@ -39,14 +38,9 @@ String upperId = (String) request.getAttribute("upperId");
     
         <tr>
             <td align="left">
-                <a href="addNewsCatalog.jsp?start=<%=start %>&range=<%= range %>&parentId=<%=parentId %>"><img src="<%=request.getContextPath()%>/Images/btn_add.gif" border="0"/></a>
+                <a href="addNewsItem.jsp?start=<%=start %>&range=<%= range %>&parentId=<%=parentId %>"><img src="<%=request.getContextPath()%>/Images/btn_add.gif" border="0"/></a>
             
             &nbsp;
-            <%if (!"-1".equals(parentId)) { %>
-                <a href="<%=request.getContextPath() %>/NewsCatalog/ListNewsCatalog?parentId=<%=upperId%>">
-                    <img src="<%=request.getContextPath() %>/Images/btn_back.gif" border="0" />
-                </a>
-            <%} %>
             </td>
             
             <td align="right">
@@ -59,19 +53,17 @@ String upperId = (String) request.getAttribute("upperId");
     <table width="90%" align="center" cellpadding="3" cellspacing="1" border="0" class="table" >
         <tr class="tr">
             <td align="center" bgcolor="eoeoeo" nowrap="nowrap">名称</td>
-            <td align="center" bgcolor="eoeoeo" nowrap="nowrap">子分类</td>
-            <td align="center" bgcolor="eoeoeo" nowrap="nowrap">新闻条目</td>
-            <td align="center" bgcolor="eoeoeo" nowrap="nowrap">修改</td>
+            <td align="center" bgcolor="eoeoeo" nowrap="nowrap">管理附件</td>
+            <td align="center" bgcolor="eoeoeo" nowrap="nowrap">更新</td>
             <td align="center" bgcolor="eoeoeo" nowrap="nowrap">删除</td>
         </tr>
         <%          
         for (int i = 0; list != null && i < list.size(); i++) {
-            NewsCatalog bean = list.get(i);
+            NewsItem bean = list.get(i);
         %>
         <tr  class="tr">
             <td align="center"><%=bean.getName() %></td>
-            <td align="center"><a href="ListNewsCatalog?parentId=<%=bean.getId() %>&parentOfParentId=<%=parentId%>">子分类</a></td>
-            <td align="center"><a href="../NewsItem/ListNewsItem?start=0&range=20&parentId=<%= bean.getId()%>">新闻条目</a></td>
+            <td align="center">管理附件</td>
             <td align="center"><a href="UpdatePNewsCatalog?start=<%= start %>&range=<%= range %>&parentId=<%=parentId%>&id=<%=bean.getId()%>">更新</a></td>
             <td align="center"><a href="DeleteNewsCatalog?start=<%= start %>&range=<%= range %>&parentId=<%= parentId %>&id=<%= bean.getId() %>" onclick="return del();">删除</a></td>
         </tr>
