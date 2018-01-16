@@ -30,6 +30,32 @@
     <servlet-name>AddNewsItem</servlet-name>
     <servlet-class>com.shengsiyuan.imis.servlet.newsitem.AddNewsItem</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ListNewsAttachment</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newsattachment.ListNewsAttachment</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddNewsAttachment</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newsattachment.AddNewsAttachment</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ViewNewsItem</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newsitem.ViewNewsItem</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownloadNewsAttachment</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.newsattachment.DownloadNewsAttachment</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DocumentCatalogTree</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.documentcatalog.DocumentCatalogTree</servlet-class>
+  </servlet>
+
+
+
+
+
+
 
 
 
@@ -64,6 +90,26 @@
   <servlet-mapping>
     <servlet-name>AddNewsItem</servlet-name>
     <url-pattern>/NewsItem/AddNewsItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListNewsAttachment</servlet-name>
+    <url-pattern>/NewsAttachment/ListNewsAttachment</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddNewsAttachment</servlet-name>
+    <url-pattern>/NewsAttachment/AddNewsAttachment</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ViewNewsItem</servlet-name>
+    <url-pattern>/NewsItem/ViewNewsItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownloadNewsAttachment</servlet-name>
+    <url-pattern>/NewsAttachment/DownloadNewsAttachment</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DocumentCatalogTree</servlet-name>
+    <url-pattern>/DocumentCatalog/DocumentCatalogTree</url-pattern>
   </servlet-mapping>
  
 </web-app>

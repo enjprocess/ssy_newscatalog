@@ -14,4 +14,6 @@ public interface NewsItemService {
     public long getNewsItemByParentId(long parentId) throws ServiceException;
     
     public void addNewsItem(NewsItem bean) throws ServiceException;
+    
+    public NewsItem getNewsItemById(long id) throws ServiceException;
 }

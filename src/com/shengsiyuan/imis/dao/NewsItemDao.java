@@ -14,4 +14,7 @@ public interface NewsItemDao {
     
     public void addNewsItem(NewsItem bean) throws DaoException;
     
+    public NewsItem getNewsItemById(long id) throws DaoException;
+    
+    
 }

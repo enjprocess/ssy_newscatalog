@@ -22,4 +22,15 @@ public class ErrCode {
 
     public static final int UPDATE_NEWS_ITEM_ERROR = 3003;
     
+    /////////////////////////////////////////////////////////////
+        
+    public static final int ADD_NEWS_ATTACHMENT_ERROR = 4001;
+    
+    public static final int LIST_NEWS_ATTACHMENT_ERROR = 4002;
+    
+//    public static final int UPDATE_NEWS_ITEM_ERROR = 3003;
+    
+    /////////////////////////////////////////////////////////////
+    
+    public static final int LIST_DOCUMENTCATALOG_ERROR = 5001;
 }

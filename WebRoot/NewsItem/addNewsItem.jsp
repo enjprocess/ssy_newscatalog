@@ -17,7 +17,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<script type="text/javascript" src="../lib/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="../lib/jquery.js"></script>
 <link type="text/css"  rel="stylesheet" href="../jwysiwyg/jquery.wysiwyg.css" />
 <script type="text/javascript" src="../jwysiwyg/jquery.wysiwyg.js"></script>
 <script type="text/javascript">

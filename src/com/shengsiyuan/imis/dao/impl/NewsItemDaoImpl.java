@@ -89,4 +89,28 @@ public class NewsItemDaoImpl extends AbstractBaseDao implements NewsItemDao {
     
     }
 
+    @Override
+    public NewsItem getNewsItemById(long id) throws DaoException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("select * from ")
+                .append(DaoConstants.NEWSITEM_TABLE_NAME)
+                .append(" where id = ?");
+        try {
+            PreparedStatement ps = conn.prepareStatement(sb.toString());
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                NewsItem bean = new NewsItem();
+                bean.setId(rs.getLong("id"));
+                bean.setName(rs.getString("name"));
+                bean.setContent(rs.getString("content"));
+                bean.setParentId(rs.getLong("parentId"));
+                return bean;
+            }
+        } catch (SQLException e) {
+            throw new DaoException(ErrCode.SQL_ERROR, e);
+        }
+        return null;
+    }
+
 }

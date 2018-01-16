@@ -72,4 +72,20 @@ public class NewsItemServiceImpl extends AbstractBaseService implements
         }
     }
 
+    @Override
+    public NewsItem getNewsItemById(long id) throws ServiceException {
+        TransactionContext context = transManager.beginTransaction();
+
+        NewsItemDao dao = new NewsItemDaoImpl(context.getConn());
+
+        try {
+            NewsItem bean = dao.getNewsItemById(id);
+            transManager.commitTransaction(context);
+            return bean;
+        } catch (DaoException e) {
+            transManager.rollbackTransaction(context);
+            throw new ServiceException(ErrCode.ADD_NEWS_ITEM_ERROR, e);
+        }
+    }
+
 }

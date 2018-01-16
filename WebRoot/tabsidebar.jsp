@@ -55,6 +55,39 @@
 					<a href="<%= request.getContextPath() %>/NewsCatalog/ListNewsCatalog?parentId=-1&start=0&range=20">新闻管理</a>
 				</td>
 			</tr>
+
+			<tr>
+				<td height="22" align="center">
+					<a href="<%= request.getContextPath() %>/DocumentCatalog/documentCatalogTree.jsp?parentId=-1">公司文档</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td height="22" align="center">
+					<a href="<%= request.getContextPath() %>/DocumentCatalog/documentCatalogTree.jsp?parentId=-1">部门文档</a>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td height="22" align="center">
+					<a href="<%= request.getContextPath() %>/DocumentCatalog/documentCatalogTree.jsp?parentId=-1">协作文档</a>
+				</td>
+			</tr>
+			
+			<tr>
+                <td height="22" align="center">
+                    <a href="<%= request.getContextPath() %>/DocumentCatalog/documentCatalogTree.jsp?parentId=-1">共享文档</a>
+                </td>
+            </tr>
+            
+                        
+            <tr>
+                <td height="22" align="center">
+                    <a href="<%= request.getContextPath() %>/DocumentCatalog/documentCatalogTree.jsp?parentId=-1">培训文档</a>
+                </td>
+            </tr>       
+            
 			
 			
 			

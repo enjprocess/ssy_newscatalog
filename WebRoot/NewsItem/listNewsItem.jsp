@@ -20,6 +20,37 @@ String range = (String) request.getAttribute("range");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<script type="text/javascript" src="../lib/jquery.blockUI.js"></script>
+<script type="text/javascript">
+
+function showNewsItem(id) {
+	
+	$.blockUI({message: $('#newsItemPane'), css: {cursor:''}});
+	$.post("ViewNewsItem", 
+			{
+	         id : id
+			}, 
+			function(returnedData, status) {
+				$("#title").html(returnedData.newsName);
+				$("#content").html(returnedData.newsContent);
+				
+				var attList = returnedData.list;
+				var str = "";
+				for (var i = 0; i < attList.length; i++) {
+					str += "<a href='../NewsAttachment/DownloadNewsAttachment?parentId=" + attList[i].parentId + "&name=" 
+							+ attList[i].name + "&randomName=" + attList[i].randomName + "'>" + attList[i].name + "</a><br/>"
+				}
+				$("#attachment").html(str);
+			})
+}
+
+function closeNewsItem() {
+	$.unblockUI();
+}
+
+
+</script>
 </head>
 <body>
 
@@ -62,14 +93,32 @@ String range = (String) request.getAttribute("range");
             NewsItem bean = list.get(i);
         %>
         <tr  class="tr">
-            <td align="center"><%=bean.getName() %></td>
-            <td align="center">管理附件</td>
+            <td align="center"><a href="#" onclick="showNewsItem('<%= bean.getId()%>')"><%=bean.getName() %></a></td>
+            <td align="center"><a href="../NewsAttachment/ListNewsAttachment?parentId=<%= bean.getId()%>">管理附件</a></td>
             <td align="center"><a href="UpdatePNewsCatalog?start=<%= start %>&range=<%= range %>&parentId=<%=parentId%>&id=<%=bean.getId()%>">更新</a></td>
             <td align="center"><a href="DeleteNewsCatalog?start=<%= start %>&range=<%= range %>&parentId=<%= parentId %>&id=<%= bean.getId() %>" onclick="return del();">删除</a></td>
         </tr>
         <%} %>
     </table>
     
+
+    
     <%@include file="../footer.jsp" %>
+    
+            
+       <table id="newsItemPane" style="display: none" width="90%" align="center" cellpadding="3" cellspacing="1" border="0"  >
+           <tr class="tr">
+               <td align="center" bgcolor="eoeoeo" nowrap="nowrap" id="title">标题</td>
+           </tr>
+           <tr>
+               <td align="center" nowrap="nowrap" id="content">内容</td>
+           </tr>
+           <tr>
+               <td align="center" nowrap="nowrap" id="attachment"></td>
+           </tr>
+           <tr>
+               <td align="center" nowrap="nowrap"><input type="button" value="关闭窗口" onclick="closeNewsItem();" /></td>
+           </tr>
+       </table>
 </body>
 </html>
