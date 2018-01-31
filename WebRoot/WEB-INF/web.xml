@@ -50,6 +50,16 @@
     <servlet-name>DocumentCatalogTree</servlet-name>
     <servlet-class>com.shengsiyuan.imis.servlet.documentcatalog.DocumentCatalogTree</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddDocumentCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.documentcatalog.AddDocumentCatalog</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateDocumentCatalog</servlet-name>
+    <servlet-class>com.shengsiyuan.imis.servlet.documentcatalog.UpdateDocumentCatalog</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -110,6 +120,14 @@
   <servlet-mapping>
     <servlet-name>DocumentCatalogTree</servlet-name>
     <url-pattern>/DocumentCatalog/DocumentCatalogTree</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddDocumentCatalog</servlet-name>
+    <url-pattern>/DocumentCatalog/AddDocumentCatalog</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateDocumentCatalog</servlet-name>
+    <url-pattern>/DocumentCatalog/UpdateDocumentCatalog</url-pattern>
   </servlet-mapping>
  
 </web-app>

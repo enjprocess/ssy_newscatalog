@@ -23,47 +23,156 @@ String range = (String) request.getAttribute("range");
 <script type="text/javascript" src="../lib/jquery.js"></script>
 <script type="text/javascript" src="../jstree/jquery.tree.js"></script>
 <script type="text/javascript" src="../lib/jquery.metadata.js"></script>
+<script type="text/javascript" src="../lib/jquery.blockUI.js"></script>
 
-<link type="text/css" rel="stylesheet" href="../jstree/syntax/shCore.css"/>
-<link type="text/css" rel="stylesheet" href="../jstree/syntax/shThemeDefault.css"/>
 <script type="text/javascript">
 
-var url = "DocumentCatalogTree";
+var src = "DocumentCatalogTree?type=${param.type}";
+var firstLoading = true;
+var selectNodeId = -1;
 
-$(function () { 
-	$("#tree").tree({
-        data : { 
-            type : "json",
-            async : true,
-            opts : {
-                method : "POST",
-                url : url
-            }
-        },
-        callback:{
-            beforedata: function(NODE, TREE_OBJ) { 
-                return { parentId : $(NODE).attr("id") || -1 } 
-            }
-        }
-    });
-});
+$(document).ready(function(){
+	$('#documentCatalog').tree({
+		data : {
+			type: 'json',
+			async: 'true',
+			opts: {
+				method: 'POST',
+				url:src
+			}
+		},
+		lang : {
+			loading: "目录加载中..."
+		},
+		ui: {
+			theme_name: 'apple'
+		}, 
+		callback: {
+			beforedata: function(NODE, TREE_OBJ) {
+				
+				if (firstLoading) {
+					firstLoading = false;
+				    return {parentId: ${param.parentId}};
+				} else {
+					return {parentId:$(NODE).children("a").attr("id").substring(4)};
+				}
+				
+			},
+			onselect : function(NODE, TREE_OBJ) {
+				selectNodeId = $(NODE).children("a").attr("id").substring(4);
+			}
+		}
+		
+		
+	});
+})
+
+
+function createDocumentCatalog() {
+	$.blockUI({message:$('#addDocumentCatalogArea')})
+}
+
+function closeWindow() {
+	$(":text").val("");
+	$.unblockUI();
+}
+
+function addDocumentCatalog() {
+	
+	
+	$.post("AddDocumentCatalog", {
+		title: $("#title").val(),
+		parentId: selectNodeId,
+		type: ${param.type}
+	}, function(returnedData, status) {
+		if (-1 == selectNodeId) {
+			$.tree.focused().create({"data":{"title":$("#title").val(),"attributes":{"id":"node" + returnedData,"href":""}},"state":"leaf"}, $('li:first'), 0);
+		} else {
+			$.tree.focused().create({"data":{"title":$("#title").val(),"attributes":{"id":"node" + returnedData,"href":""}},"state":"leaf"}, "#node" + selectNodeId, 0);
+		}
+		closeWindow();
+	});
+	
+}
+
+function updatePDocumentCatalog() {
+	//改变"增加"按钮的行为
+	document.getElementById("sample").onclick = updateDocumentCatalog;
+	$.blockUI({message:$('#addDocumentCatalogArea')})
+}
+
+function updateDocumentCatalog() {
+	//还原"增加"按钮的行为
+	document.getElementById("sample").onclick = addDocumentCatalog;
+	$.ajax({
+		type: "POST",
+		url: "UpdateDocumentCatalog",
+		data: {
+			type: ${param.type},
+			id: selectNodeId,
+			title:$("#title").val()
+		},
+		success:function(returnedData, status) {
+			$.unblockUI();
+			$.tree.focused().rename("#node" + selectNodeId, $("#title").val());
+			$("#title").val("");
+		},
+		error: function(XHR, textStatus, errorThro) {
+			//alert($(XHR.responseText).length); 
+/* 			for(var i = 0; i < $(XHR.responseText).length; i++) {
+				console.log($(XHR.responseText).get(i).innerHTML);
+			} */
+			var source = "<h1>";
+			var dest = "</h1>";
+			var errMsg = XHR.responseText;
+			var result = errMsg.substring(errMsg.indexOf(source) + source.length, errMsg.indexOf(dest));
+			alert(result)
+			$.unblockUI();
+		}
+	});
+	
+}
+
 
 </script>
 </head>
 <body>
 
 
-    <table width="400" align="center"  >
+
+    <table width="400" align="left" border="1" >
     
         <tr>
             <td align="left">
+                <input type="button" value="增加文档" onclick="createDocumentCatalog();" />
+            </td>
+            <td align="left">
+                <input type="button" value="更新文档" onclick="updatePDocumentCatalog();" />
             </td>
         </tr>
         
     </table>
     
     
-    <div id="tree">
+    <div id="documentCatalog">
+    </div>
+    
+    <div id="addDocumentCatalogArea" style="display: none">
+        <table width="400" align="center" border="1" >
+	        <tr>
+	             <td align="left" colspan="2">
+                    <input type="text" id="title" style="width: 100%" />
+                </td>
+	        </tr>
+	        <tr>
+	           <td align="right">
+                    <input id="sample" type="button" value="增加" onclick="addDocumentCatalog();" />
+                </td>
+	            <td align="left">
+                    <input type="button" value="关闭" onclick="closeWindow();" />
+                </td>
+            </tr>
+        </table>
     </div>
     
    

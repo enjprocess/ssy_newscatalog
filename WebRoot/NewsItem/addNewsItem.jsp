@@ -18,8 +18,8 @@
 <title>Insert title here</title>
 
 <script type="text/javascript" src="../lib/jquery.js"></script>
-<link type="text/css"  rel="stylesheet" href="../jwysiwyg/jquery.wysiwyg.css" />
-<script type="text/javascript" src="../jwysiwyg/jquery.wysiwyg.js"></script>
+<link type="text/css"  rel="stylesheet" href="../lib/jwysiwyg/jquery.wysiwyg.css" />
+<script type="text/javascript" src="../lib/jwysiwyg/jquery.wysiwyg.js"></script>
 <script type="text/javascript">
 
 $(function() {

@@ -33,4 +33,6 @@ public class ErrCode {
     /////////////////////////////////////////////////////////////
     
     public static final int LIST_DOCUMENTCATALOG_ERROR = 5001;
+    public static final int ADD_DOCUMENTCATALOG_ERROR = 5002;
+    public static final int UPDATE_DOCUMENTCATALOG_ERROR = 5003;
 }

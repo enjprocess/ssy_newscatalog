@@ -1,16 +1,25 @@
 package com.shengsiyuan.imis.model;
 
-import java.util.List;
-
 public class DocumentCatalog {
 
     private long id;
-
+    
     private String name;
     
-    private long parentId;
+    //1-5标示5种文档，添加文档的时候，需要type和parentId才知道添加到哪里
+    private long type;
     
-    private String state;
+    private boolean leaf;
+    
+    public boolean isLeaf() {
+        return leaf;
+    }
+
+    public void setLeaf(boolean leaf) {
+        this.leaf = leaf;
+    }
+
+    private long parentId;
 
     public long getId() {
         return id;
@@ -28,6 +37,14 @@ public class DocumentCatalog {
         this.name = name;
     }
 
+    public long getType() {
+        return type;
+    }
+
+    public void setType(long type) {
+        this.type = type;
+    }
+
     public long getParentId() {
         return parentId;
     }
@@ -35,13 +52,7 @@ public class DocumentCatalog {
     public void setParentId(long parentId) {
         this.parentId = parentId;
     }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
+    
+    
     
 }
