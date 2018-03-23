@@ -63,7 +63,7 @@ public class AddNewsAttachment extends HttpServlet {
                     
                     String randomName = time + FileUtility.randomNameFile(name);
                     //补充完数据
-                    String realPath = request.getServletContext().getRealPath("/filestorage");
+                    String realPath = request.getSession().getServletContext().getRealPath("/filestorage");
                     
                     File file = new File(realPath, parentId);
                     

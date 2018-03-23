@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,9 +26,8 @@ public class DownloadNewsAttachment extends HttpServlet {
         long parentId = ParamUtils.getLongParameter(request, "parentId");
         String name = request.getParameter("name");
         String randomName = request.getParameter("randomName");
-        
         response.setHeader("Content-Disposition", "attachment;filename=\"" + name + "\"");
-        String path = request.getServletContext().getRealPath("/filestorage/" + parentId + "/" + randomName);
+        String path = request.getSession().getServletContext().getRealPath("/filestorage/" + parentId + "/" + randomName);
         
         InputStream is = new FileInputStream(path);
         
